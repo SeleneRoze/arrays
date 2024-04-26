@@ -111,24 +111,23 @@ Example:
      */
 
 function shorterArray(arr) {
-    // Step 1: Split the array into two equal parts
+
     const midpoint = Math.floor(arr.length / 2);
     const part1 = arr.slice(0, midpoint);
     const part2 = arr.slice(midpoint);
 
-    // Step 2: If the array length is odd, remove the middle element
     if (arr.length % 2 !== 0) {
         part2.shift();
     }
 
-    // Step 3: Calculate the sum of each number of the first part with the inverse of the corresponding number in the second part
+ 
     const result = part1.map((x, i) => parseFloat(((x + 1 / part2[part2.length - 1 - i]) / 2).toFixed(2)));
 
     return result;
 }
 
-// Example usage:
+
 const arr = [1, 2, 3, 5, 22, 6];
 const result = shorterArray(arr);
-console.log(result); // Output: [0.58, 1.02, 1.6]
+console.log(result); 
 
